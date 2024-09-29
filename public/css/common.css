@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+/* * {
+  box-sizing: border-box;
+} */
+
+body {
+  background-color: white;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.dark-mode {
+  background-color: black;
+  color: white;
+}
+
+.navbar {
+  background-color: white;
+  color: black;
+}
+
+.navbar.dark-mode {
+  background-color: black !important;
+  color: white !important;
+}
+
+/* Ensure elements inside navbar-toggler are visible in both modes */
+.navbar-toggler {
+  color: black; /* Default color for light mode */
+  border-color: black; /* Border for light mode */
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* Black bars for the icon in light mode */
+}
+
+.dark-mode .navbar-toggler {
+  color: white !important;
+  border-color: white !important; /* Border for dark mode */
+}
+
+.dark-mode .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important; /* White bars for the icon in dark mode */
+}
+.navbar-collapse {
+  width: 100%;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 767px) {
+  .navbar-toggler {
+    color: black; /* Default color for mobile in light mode */
+    border-color: black;
+  }
+
+  .dark-mode .navbar-toggler {
+    color: white !important; /* White text for dark mode on mobile */
+    border-color: white !important;
+  }
+
+  .navbar-toggler-icon {
+    width: 30px;
+    height: 30px;
+    background-size: contain;
+  }
+
+  .dark-mode .navbar-toggler-icon {
+    background-size: contain;
+  }
+
+  .box {
+    width: 60%; /* Adjust boxes for mobile screen */
+  }
+
+  h1 {
+    font-size: 24px; /* Smaller font for mobile */
+  }
+}
+
+h1 {
+  /* margin: 10px; */
+  text-align: center;
+}
+
+.box {
+  background-color: steelblue;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  height: 100px;
+  margin: 10px;
+  border-radius: 10px;
+  box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.3);
+  transform: translateX(400%);
+  transition: transform 0.4s ease;
+  /* margin-left: 1.5rem; */
+}
+
+.box:nth-of-type(even) {
+  transform: translateX(-400%);
+}
+
+.box.show {
+  transform: translateX(0);
+}
+
+.box h2 {
+  font-size: 20px;
+}
+
+a {
+  color: white;
+}
+
+a.fill-div {
+  display: block;
+  height: 100%;
+  width: 100%;
+  text-decoration: none;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+/* Navbar image styling */
+img {
+  overflow-clip-margin: content-box;
+  overflow: clip;
+  height: 55px;
+  background-color: black;
+}
+
+.toggle {
+  color: white;
+}
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}

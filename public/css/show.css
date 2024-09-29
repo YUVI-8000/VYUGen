@@ -1,0 +1,150 @@
+body{
+    font-family: 'Roboto', sans-serif !important;
+    display: flex;
+    flex-direction: column;
+}
+
+.dark-mode {
+    background-color: black;
+    color: white;
+  }
+  .navbar.dark-mode{
+    background-color: black !important;
+    color: white !important;
+  }
+  /* Dark mode */
+.dark-mode .outer-div-dark {
+    background-color: black !important;
+    color: #ffffff !important;
+}
+
+/* Dark mode */
+.dark-mode .card {
+    background-color: black !important;
+    color: #ffffff !important;
+}
+
+.dark-mode .btn-primary {
+    background-color: #007bff; /* Adjust button color if needed */
+    border-color: #007bff;
+}
+
+.dark-mode .btn-primary:hover {
+    background-color: #0056b3; /* Adjust hover color if needed */
+    border-color: #0056b3;
+}
+
+.ppr-card{
+    background-color: white!important;
+    color: black !important;
+    border: none !important;
+    margin-bottom: 2rem !important;
+    margin-left: 4rem !important;
+    margin-right:0.5rem !important;
+    
+}
+
+.card-img-top{
+    border-radius: 1rem !important;
+    width: 100% !important;
+    object-fit: cover;
+
+}
+
+.card-text {
+    padding: 0 !important;
+}
+
+.card-tex p{
+    font-weight: 400 !important;
+}
+
+
+
+/* styles.css */
+
+/* Ensure the outer container allows vertical scrolling on small screens */
+.outer-div {
+    max-height: 100vh; /* Limit the height of the container */
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Stack cards vertically on small screens */
+.row {
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Stack cards vertically */
+    align-items: center; /* Center cards horizontally */
+}
+
+/* Ensure cards are displayed correctly on small screens */
+.ppr-card {
+    width: 100%; /* Make each card take full width */
+    margin-bottom: 1rem; /* Space between cards */
+}
+
+/* Show cards in a grid on larger screens */
+@media (min-width: 768px) {
+    .outer-div {
+        max-height: none; /* Remove height restriction for larger screens */
+        overflow: visible; /* Remove scrolling for larger screens */
+    }
+
+    .row {
+        display: flex; /* Use flexbox for layout */
+        flex-direction: row; /* Align cards horizontally */
+        flex-wrap: wrap; /* Allow cards to wrap into multiple rows if needed */
+        align-items: flex-start; /* Align cards to the top */
+    }
+
+    .ppr-card {
+        width: 18rem; /* Fixed width for cards */
+        margin-bottom: 0; /* Remove margin on larger screens */
+    }
+}
+
+
+
+/* Ensure elements inside navbar-toggler are visible in both modes */
+.navbar-toggler {
+    color: black; /* Default color for light mode */
+    border-color: black; /* Border for light mode */
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 0, 0, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E"); /* Black bars for the icon in light mode */
+  }
+  
+  .dark-mode .navbar-toggler {
+    color: white !important;
+    border-color: white !important; /* Border for dark mode */
+  }
+  
+  .dark-mode .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E") !important; /* White bars for the icon in dark mode */
+  }
+  .navbar-collapse {
+    width: 100%;
+  }
+  
+  /* Media query for mobile devices */
+  @media (max-width: 767px) {
+    .navbar-toggler {
+      color: black; /* Default color for mobile in light mode */
+      border-color: black;
+    }
+  
+    .dark-mode .navbar-toggler {
+      color: white !important; /* White text for dark mode on mobile */
+      border-color: white !important;
+    }
+  
+    .navbar-toggler-icon {
+      width: 30px;
+      height: 30px;
+      background-size: contain;
+    }
+  
+    .dark-mode .navbar-toggler-icon {
+      background-size: contain;
+    }
+  }

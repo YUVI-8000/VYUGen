@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VYUGen Papers</title>
+    <link rel="icon" href="https://res.cloudinary.com/djzvqxx7n/image/upload/v1725689444/logo2_pnhtcm.png">
+    <link rel="stylesheet" href="/css/home.css">
+</head>
+<body>
+    <nav class="nav">
+        <div class="container">
+            <div class="logo">
+                <a href="#">VYUGen Papers</a>
+            </div>
+            <div id="mainListDiv" class="main_list">
+                <ul class="navlinks">
+                    <li><a href="/ppr">Downloads</a></li>
+                    <li><a href="/new">Add a paper</a></li>
+                    <li><a href="#">About us</a></li>
+                </ul>
+            </div>
+            <span class="navTrigger">
+                <i></i>
+                <i></i>
+                <i></i>
+            </span>
+        </div>
+    </nav>
+
+    <div class="image-container">
+        <img src="https://i.pinimg.com/originals/19/87/c8/1987c8851b996bf6b22148d2504edaf1.jpg" alt="Background Image" style="width: 100%; height: 100%; object-fit: cover;">
+        <div class="search-container">
+             <!-- VYUGen Text -->
+        <div class="vyugen-text">VYUGen</div>
+        
+        <!-- Search Bar and Buttons -->
+            <form action="/search" method="post">
+                <input type="text" placeholder="Search VYUGen" name="sub" class="search-bar">
+                <div class="button-container">
+                    <button type="submit" class="search-button">Search by name</button>
+                    <button type="button" class="search-button" onclick="feelingLucky()">Search by topic</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div style="height: 1000px">
+        <!-- just to make scrolling effect possible -->
+        <h2 class="myH2">What is this ?</h2>
+        <p class="myP"></p>
+        <p class="myP"></p>
+        <p class="myP">I HOPE YOU FIND THIS USEFUL</p>
+        <p class="myP"></p>
+        <p class="myP"></p>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="js/home.js"></script>    
+
+    <!-- JavaScript for "I'm Feeling Lucky" -->
+    <script>
+        function feelingLucky() {
+            window.location.href = "/random";
+        }
+    </script>
+
+
+</body>
+</html>

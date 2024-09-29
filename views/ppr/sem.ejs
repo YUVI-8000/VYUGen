@@ -1,0 +1,13 @@
+<% layout("./layout/boilerplate") %>
+
+    <br><br><br>
+    <h1 class="text-center">SELECT SEMESTER</h1>
+    <% for(let s of sem){ %>
+        <div class="box">
+            <a href="/<%= cr %>/<%= br %>/<%= s %>" class="fill-div"><h2><%=s%></h2></a>    
+        </div>
+    <% } %>
+  
+
+
+   

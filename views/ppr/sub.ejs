@@ -1,0 +1,10 @@
+<% layout("./layout/boilerplate") %>
+
+    <br><br><br>
+    <h1 class="text-center">SELECT SUBJECT</h1>
+    <% for(let sb of subs){ %>
+        <div class="box">
+            <a href="/<%= cr %>/<%= br %>/<%= sm %>/<%= sb %>" class="fill-div"><h2><%= sb %></h2></a>    
+        </div>
+    <% } %>
+   

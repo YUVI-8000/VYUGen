@@ -1,0 +1,54 @@
+<% layout("./layout/boilerplate") %>
+<div class="row mt-3">
+    <div class="col">
+        <br><br>
+    <h3 style="text-align: center;">Add a new Paper</h3>
+    <form method="post" action="/add" class="needs-validation"  novalidate style="margin: 1rem;">
+        <div class="mb-3">
+            <label for="course" class="form-label">Course</label>
+            <input name="ppr[course]" placeholder="please type in small alphabets" type="text"  class="form-control" required>
+            <div class="valid-feedback">looks good</div>
+        </div>
+        
+        <div class="mb-3">
+            <label for="branch" class="form-label">Branch</label>
+            <input name="ppr[branch]" placeholder="please type in small alphabets" type="text"  class="form-control" required>
+            <div class="valid-feedback">looks good</div>
+        </div>
+
+        <div class="row">
+       
+        <div class="mb-3 col-md-4">
+            <label for="Semester" class="form-label">Semester</label>
+            <input name="ppr[semester]" class="form-control" required >
+            <div class="invalid-feedback">Semester should be valid</div>
+        </div class="mb-3">
+
+        <div class="mb-3 col-md-8">
+            <label for="scheme" class="form-label">Scheme</label>
+            <input name="ppr[scheme]" placeholder="Type in numbers" type="text" class="form-control" required>
+            <div class="valid-feedback">Scheme should be valid</div>
+        </div>
+    </div>
+        <div class="mb-3">
+            <label for="subName" class="form-label">Subject Name</label>
+            <input name="ppr[subName]" placeholder="please type in small alphabets" type="text" class="form-control" required>
+            <div class="valid-feedback">please ensure spaces</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="subCode" class="form-label">Subject code</label>
+            <input name="ppr[subCode]" placeholder="please type in small alphabets" type="text" class="form-control" required>
+            <div class="valid-feedback">please ensure spaces</div>
+        </div>
+        
+        <div class="mb-3">
+            <label for="image" class="form-label">Image link</label>
+            <input name="ppr[image]"  type="text" class="form-control">
+        </div class="mb-3">
+        
+        <button class="btn btn-outline-primary add-btn mt-3">Add</button>
+        <br><br>
+    </form>
+</div>
+</div>
