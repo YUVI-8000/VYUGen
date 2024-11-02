@@ -1,8 +1,10 @@
+require('dotenv').config({ path: '../.env' });
 const mongoose = require("mongoose");
 const initData = require("./data.js");
 const Ppr = require("../models/ppr.js");
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/samplePpr";
+const dbUrl = process.env.MONGO_URL
 
 main()
   .then(() => {
@@ -13,7 +15,7 @@ main()
   });
 
 async function main() {
-  await mongoose.connect(MONGO_URL);
+  await mongoose.connect(dbUrl);
 }
 
 const initDB = async () => {
