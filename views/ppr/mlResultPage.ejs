@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ML Results</title>
+</head>
+<body>
+    <h1>Similar Questions</h1>
+    <ul>
+        <% if (result.length > 0) { %>
+            <% result.forEach(item => { %>
+                <li>
+                    <strong>Similarity:</strong> <%= item.similarity %> - 
+                    <strong>Question:</strong> <%= item.question %>
+                </li>
+            <% }) %>
+        <% } else { %>
+            <li>No results found.</li>
+        <% } %>
+    </ul>
+</body>
+</html>

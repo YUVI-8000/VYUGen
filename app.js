@@ -15,6 +15,7 @@ const flash = require("connect-flash");
 const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
+const axios = require("axios");
 
 const MONGO_URL = "mongodb://127.0.0.1:27017/samplePpr"
 main()
@@ -65,14 +66,14 @@ app.use((req,res,next)=>{
     next();
 });
 
-app.get("/demouser",async(req,res)=>{
-    let admin = new User({
-        email: "admin@gmail.com",
-        username: "admin-account"
-    });
-    let registeredUser = await User.register(admin,"vyugen@5660");
-    res.send(registeredUser);
-});
+// app.get("/demouser",async(req,res)=>{
+//     let admin = new User({
+//         email: "admin@gmail.com",
+//         username: "admin-account"
+//     });
+//     let registeredUser = await User.register(admin,"vyugen@5660");
+//     res.send(registeredUser);
+// });
 
 app.get("/",(req,res)=>{
     res.render("./ppr/home.ejs");
@@ -83,6 +84,30 @@ app.post("/search",wrapAsync (async(req,res)=>{
     let pr= await ppr.find({subName:{$regex:sub}});
     res.render("./ppr/show.ejs",{pr});
 }));
+// app.get("/ml-search", async (req, res) => {
+//     try {
+//       const query = req.query.query;
+//       const response = await axios.get(`http://127.0.0.1:5000/ml-search?query=${query}`);
+//       const mlResult = response.data;
+//       res.render("mlResultPage", { result: mlResult });
+//     } catch (error) {
+//       console.error("Error connecting to ML server:", error);
+//       res.render("error.ejs", { err: "Unable to fetch results from ML server." });
+//     }
+//   });
+app.get("/ml-search", async (req, res) => {
+    try {
+        const query = req.query.query;
+        // Change from GET to POST request
+        const response = await axios.post("http://127.0.0.1:5000/ml-search", { topic: query });
+        const mlResult = response.data;
+        // console.log(mlResult); 
+        res.render("./ppr/mlResultPage.ejs", { result: mlResult });
+    } catch (error) {
+        console.error("Error connecting to ML server:", error);
+        res.render("error.ejs", { err: "Unable to fetch results from ML server." });
+    }
+});
 
 app.get("/new",(req,res)=>{
     if(!req.isAuthenticated()){
