@@ -17,7 +17,9 @@ const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 const axios = require("axios");
 
-const MONGO_URL = "mongodb://127.0.0.1:27017/samplePpr"
+// const MONGO_URL = "mongodb://127.0.0.1:27017/samplePpr"
+const dbUrl = process.env.MONGO_URL
+
 main()
     .then(()=>{
         console.log("connected to data base");
@@ -27,7 +29,7 @@ main()
     });
 
 async function main(){
-    await mongoose.connect(MONGO_URL);
+    await mongoose.connect(dbUrl);
 }
 
 app.set("view engine","ejs");
@@ -84,17 +86,7 @@ app.post("/search",wrapAsync (async(req,res)=>{
     let pr= await ppr.find({subName:{$regex:sub}});
     res.render("./ppr/show.ejs",{pr});
 }));
-// app.get("/ml-search", async (req, res) => {
-//     try {
-//       const query = req.query.query;
-//       const response = await axios.get(`http://127.0.0.1:5000/ml-search?query=${query}`);
-//       const mlResult = response.data;
-//       res.render("mlResultPage", { result: mlResult });
-//     } catch (error) {
-//       console.error("Error connecting to ML server:", error);
-//       res.render("error.ejs", { err: "Unable to fetch results from ML server." });
-//     }
-//   });
+
 app.get("/ml-search", async (req, res) => {
     try {
         const query = req.query.query;
