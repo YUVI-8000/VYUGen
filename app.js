@@ -78,6 +78,9 @@ app.use((req,res,next)=>{
 // });
 
 app.get("/",(req,res)=>{
+    res.send("root is working")
+})
+app.get("/home",(req,res)=>{
     res.render("./ppr/home.ejs");
 });
 
