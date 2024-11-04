@@ -394,17 +394,21 @@ footer {
         
     }
     .contact-left{
-        margin-left: 6.8rem;
+        margin-left: 4rem;
         
     }
     .contact-left h2{
         font-size: 54px;
         font-weight: 600;
+        margin-left: 1rem;
     }
     .cards{
         display: flex;
         flex-direction: column;
         align-content: center;
+    }
+    .cards div{
+        margin-left: 1rem;
     }
     .contact-right{
         margin-left: 2rem;
@@ -448,6 +452,6 @@ footer {
         flex-direction: column;
         margin-bottom: 50px;
         align-items: center;
-        padding: 20px;
+        padding: 5px;
     }
 }
