@@ -17,7 +17,7 @@ const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 const axios = require("axios");
 
-// const MONGO_URL = "mongodb://127.0.0.1:27017/samplePpr"
+// const dbUrl = "mongodb://127.0.0.1:27017/samplePpr"
 const dbUrl = process.env.MONGO_URL
 
 main()
@@ -104,33 +104,6 @@ app.get("/ml-search", async (req, res) => {
         res.render("error.ejs", { err: "Unable to fetch results from ML server." });
     }
 });
-
-// app.get("/ml-search", async (req, res) => {
-//     try {
-//         const query = req.query.query;
-        
-//         if (!query) {
-//             return res.render("error.ejs", { err: "Query parameter is missing." });
-//         }
-        
-//         const response = await axios.post(
-//             "https://vyugen-ml.onrender.com/ml-search",
-//             { topic: query },
-//             { timeout: 5000 } // Set a timeout of 5 seconds
-//         );
-
-//         const mlResult = response.data;
-//         res.render("./ppr/mlResultPage.ejs", { result: mlResult });
-//     } catch (error) {
-//         console.error("Error connecting to ML server:", error.message);
-//         const errorMessage = error.code === 'ECONNABORTED' 
-//             ? "The request to the ML server timed out." 
-//             : "Unable to fetch results from ML server.";
-        
-//         res.status(500).render("error.ejs", { err: errorMessage });
-//     }
-// });
-
 
 app.get("/new",(req,res)=>{
     if(!req.isAuthenticated()){

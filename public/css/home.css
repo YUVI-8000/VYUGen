@@ -120,7 +120,8 @@ body {
     }
 
     .nav div.logo {
-        margin-left: 15px;
+        margin-left: 1px;
+        padding-left: 2rem;
     }
 
     .nav div.main_list {
@@ -413,16 +414,18 @@ footer {
         font-weight: 600;
     }.contact-right label{
         color: #0f0f0f;
-        font-size: 15px;
+        font-size: 20px;
         font-weight: 500;
+        padding: 6px;
     }
     .contact-right input{
         border: none;
         width: 300px;
         height: 78px;
     }.contact-right textarea{
-        width: 300px;
-        height: 200px;
+        width: 28rem;
+        height: 9rem;
+        border-radius: 2px;
     }
     .contact-submit{
         border: none;
@@ -431,7 +434,7 @@ footer {
         background: linear-gradient(264deg, steelblue -5.09%, white 186.28%);
         font-size: 22px;
         padding: 20px 60px;
-        margin-bottom: 50px;
+        margin-bottom: 20px;
         cursor: pointer;
         transition: 0.3s;
         width: 250px;
@@ -445,5 +448,6 @@ footer {
         flex-direction: column;
         margin-bottom: 50px;
         align-items: center;
+        padding: 20px;
     }
 }
