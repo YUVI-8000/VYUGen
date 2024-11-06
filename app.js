@@ -77,10 +77,10 @@ app.use((req,res,next)=>{
 //     res.send(registeredUser);
 // });
 
+// app.get("/",(req,res)=>{
+//     res.send("root is working")
+// })
 app.get("/",(req,res)=>{
-    res.send("root is working")
-})
-app.get("/home",(req,res)=>{
     res.render("./ppr/home.ejs");
 });
 
