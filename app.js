@@ -52,7 +52,7 @@ app.use(methodOverride("_method"));
 //     },
 // };
 
-const sessionOptions = {
+const sessionOption = {
     secret: process.env.SECRET || 'someSecretKey',
     resave: false,
     saveUninitialized: false,
