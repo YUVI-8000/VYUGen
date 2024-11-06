@@ -17,6 +17,7 @@ const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 const axios = require("axios");
 const port = process.env.PORT || 8080;
+const MongoStore = require('connect-mongo');
 // const dbUrl = "mongodb://127.0.0.1:27017/samplePpr"
 const dbUrl = process.env.MONGO_URL
 
@@ -41,12 +42,26 @@ app.use(express.json());
 app.use(methodOverride("_method"));
 
 
-const sessionOption = {
-    secret : process.env.SECRET,
+// const sessionOption = {
+//     secret : process.env.SECRET,
+//     resave: false,
+//     saveUninitialized: true,
+//     cookie: {
+//         expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
+//         maxAge: 7 * 24 * 60 * 60 * 1000,
+//     },
+// };
+const sessionOptions = {
+    secret: process.env.SECRET || 'someSecretKey',
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
+    store: MongoStore.create({
+        mongoUrl: process.env.MONGO_URL,  // Use your MongoDB connection string here
+        ttl: 14 * 24 * 60 * 60, // Keeps session for 14 days
+        autoRemove: 'native', // Automatically remove expired sessions
+    }),
     cookie: {
-        expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
+        expires: Date.now() + 7 * 24 * 60 * 60 * 1000, // 1 week expiration
         maxAge: 7 * 24 * 60 * 60 * 1000,
     },
 };
