@@ -18,6 +18,9 @@ const User = require("./models/user.js");
 const axios = require("axios");
 const port = process.env.PORT || 8080;
 const MongoStore = require('connect-mongo');
+const helmet = require('helmet');
+const compression = require('compression');
+
 // const dbUrl = "mongodb://127.0.0.1:27017/samplePpr"
 const dbUrl = process.env.MONGO_URL
 
@@ -40,8 +43,8 @@ app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 app.use(methodOverride("_method"));
-
-
+app.use(helmet());
+app.use(compression());
 // const sessionOption = {
 //     secret : process.env.SECRET,
 //     resave: false,
@@ -92,6 +95,9 @@ app.use((req,res,next)=>{
     next();
 });
 
+app.use(express.static(path.join(__dirname, "/public"), {
+    maxAge: '1d' // Cache static files for a day
+}));
 // app.get("/demouser",async(req,res)=>{
 //     let admin = new User({
 //         email: "admin@gmail.com",
