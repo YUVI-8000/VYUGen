@@ -17,10 +17,6 @@ const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 const axios = require("axios");
 const port = process.env.PORT || 8080;
-const MongoStore = require('connect-mongo');
-const helmet = require('helmet');
-const compression = require('compression');
-
 // const dbUrl = "mongodb://127.0.0.1:27017/samplePpr"
 const dbUrl = process.env.MONGO_URL
 
@@ -43,43 +39,16 @@ app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 app.use(methodOverride("_method"));
-app.use(
-    helmet({
-      contentSecurityPolicy: {
-        directives: {
-          defaultSrc: ["'self'"],
-          imgSrc: ["'self'", "https:", "data:"], // Allow images from HTTPS URLs and data URIs
-          scriptSrc: ["'self'", "https:"], // Allow scripts from HTTPS URLs
-          styleSrc: ["'self'", "'unsafe-inline'", "https:"], // Allow inline styles if needed
-          connectSrc: ["'self'", "https:"], // Allow connections to external APIs
-        },
-      },
-    })
-  );
-app.use(compression());
-// const sessionOption = {
-//     secret : process.env.SECRET,
-//     resave: false,
-//     saveUninitialized: true,
-//     cookie: {
-//         expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
-//         maxAge: 7 * 24 * 60 * 60 * 1000,
-//     },
-// };
+
 
 const sessionOption = {
-    secret: process.env.SECRET || 'someSecretKey',
+    secret : process.env.SECRET,
     resave: false,
-    saveUninitialized: false,
-    store: MongoStore.create({
-        mongoUrl: process.env.MONGO_URL,
-        touchAfter: 24 * 3600 // Reduces the number of times sessions are updated
-    }),
+    saveUninitialized: true,
     cookie: {
-        httpOnly: true,      // Prevents client-side JavaScript from accessing cookies
-        secure: process.env.NODE_ENV === 'production', // Use HTTPS in production
-        maxAge: 7 * 24 * 60 * 60 * 1000 // 1 week
-    }
+        expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
+        maxAge: 7 * 24 * 60 * 60 * 1000,
+    },
 };
 
 app.use(session(sessionOption));
@@ -99,9 +68,6 @@ app.use((req,res,next)=>{
     next();
 });
 
-app.use(express.static(path.join(__dirname, "/public"), {
-    maxAge: '1d' // Cache static files for a day
-}));
 // app.get("/demouser",async(req,res)=>{
 //     let admin = new User({
 //         email: "admin@gmail.com",
@@ -111,10 +77,10 @@ app.use(express.static(path.join(__dirname, "/public"), {
 //     res.send(registeredUser);
 // });
 
-// app.get("/",(req,res)=>{
-//     res.send("root is working")
-// })
 app.get("/",(req,res)=>{
+    res.send("root is working")
+})
+app.get("/home",(req,res)=>{
     res.render("./ppr/home.ejs");
 });
 
