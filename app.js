@@ -51,21 +51,15 @@ app.use(methodOverride("_method"));
 //         maxAge: 7 * 24 * 60 * 60 * 1000,
 //     },
 // };
+
 const sessionOptions = {
     secret: process.env.SECRET || 'someSecretKey',
     resave: false,
     saveUninitialized: false,
     store: MongoStore.create({
-        mongoUrl: process.env.MONGO_URL,  // Use your MongoDB connection string here
-        ttl: 14 * 24 * 60 * 60, // Keeps session for 14 days
-        autoRemove: 'native', // Automatically remove expired sessions
-    }),
-    cookie: {
-        expires: Date.now() + 7 * 24 * 60 * 60 * 1000, // 1 week expiration
-        maxAge: 7 * 24 * 60 * 60 * 1000,
-    },
-};
-
+      mongoUrl:  process.env.MONGO_URL
+    })
+  };
 app.use(session(sessionOption));
 app.use(flash());
 
