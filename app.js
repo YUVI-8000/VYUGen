@@ -43,7 +43,19 @@ app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.urlencoded({extended:true}));
 app.use(express.json());
 app.use(methodOverride("_method"));
-app.use(helmet());
+app.use(
+    helmet({
+      contentSecurityPolicy: {
+        directives: {
+          defaultSrc: ["'self'"],
+          imgSrc: ["'self'", "https:", "data:"], // Allow images from HTTPS URLs and data URIs
+          scriptSrc: ["'self'", "https:"], // Allow scripts from HTTPS URLs
+          styleSrc: ["'self'", "'unsafe-inline'", "https:"], // Allow inline styles if needed
+          connectSrc: ["'self'", "https:"], // Allow connections to external APIs
+        },
+      },
+    })
+  );
 app.use(compression());
 // const sessionOption = {
 //     secret : process.env.SECRET,
