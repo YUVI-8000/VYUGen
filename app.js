@@ -16,7 +16,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local");
 const User = require("./models/user.js");
 const axios = require("axios");
-
+const port = process.env.PORT || 8080;
 // const dbUrl = "mongodb://127.0.0.1:27017/samplePpr"
 const dbUrl = process.env.MONGO_URL
 
@@ -183,6 +183,6 @@ app.use((err, req, res, next) =>{
     res.render("error.ejs", {err});
 });
 
-app.listen(8080,()=>{
-    console.log("listenig at port 8080");
-})
+app.listen(port, () => {
+    console.log(`Listening on port ${port}`);
+});
