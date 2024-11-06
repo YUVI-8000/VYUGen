@@ -39,7 +39,10 @@
                 <input type="text" id="search-bar" placeholder="Search VYUGen" name="sub" class="search-bar" />
                 <div class="button-container">
                     <button type="submit" class="search-button">Search by name</button>
-                    <button type="button" class="search-button" id="ml-search-btn" onclick="searchWithML(event)">
+                    <!-- <button type="button" class="search-button" id="ml-search-btn" onclick="searchWithML(event)">
+                        Search by topic
+                    </button> -->
+                    <button type="button" class="search-button" id="ml-search-btn">
                         Search by topic
                     </button>
                 </div>
@@ -103,6 +106,12 @@
 
     <!-- JavaScript for ML Search -->
     <script>
+         document.addEventListener('DOMContentLoaded', function() {
+        const mlSearchBtn = document.getElementById('ml-search-btn');
+        if (mlSearchBtn) {
+            mlSearchBtn.addEventListener('click', searchWithML);
+        }
+    });
         function searchWithML(event) {
             event.preventDefault(); // Prevent the form from submitting
 
