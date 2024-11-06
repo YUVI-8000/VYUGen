@@ -67,20 +67,6 @@ app.use(compression());
 //     },
 // };
 
-// const sessionOption = {
-//     secret: process.env.SECRET || 'someSecretKey',
-//     resave: false,
-//     saveUninitialized: false,
-//     store: MongoStore.create({
-//       mongoUrl: process.env.MONGO_URL,
-//       touchAfter: 24 * 3600 // Time period in seconds
-//     }),
-//     cookie: {
-//         httpOnly: true,       // Prevents client-side JavaScript from accessing cookies
-//         secure: process.env.NODE_ENV === 'production', // Set to true if using HTTPS
-//         maxAge: 7 * 24 * 60 * 60 * 1000 // 1 week in milliseconds
-//     }
-// };
 const sessionOption = {
     secret: process.env.SECRET || 'someSecretKey',
     resave: false,
