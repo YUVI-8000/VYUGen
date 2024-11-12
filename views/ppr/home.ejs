@@ -1,128 +1,221 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VYUGen Papers</title>
-    <link rel="icon" href="https://res.cloudinary.com/djzvqxx7n/image/upload/v1725689444/logo2_pnhtcm.png" />
+    <link
+      rel="icon"
+      href="https://res.cloudinary.com/djzvqxx7n/image/upload/v1725689444/logo2_pnhtcm.png"
+    />
     <link rel="stylesheet" href="/css/home.css" />
-</head>
-<body>
+  </head>
+  <body>
     <nav class="nav">
-        <div class="container">
-            <div class="logo">
-                <a href="#">VYUGen Papers</a>
-            </div>
-            <div id="mainListDiv" class="main_list">
-                <ul class="navlinks">
-                    <li><a href="/new">Add a paper</a></li>
-                    <li><a href="/ppr">Downloads</a></li>
-                    <!-- <li><a href="/about">About us</a></li> -->
-                </ul>
-            </div>
-            <span class="navTrigger">
-                <i></i>
-                <i></i>
-                <i></i>
-            </span>
+      <div class="container">
+        <div class="logo">
+          <a href="#">VYUGen Papers</a>
         </div>
+        <div id="mainListDiv" class="main_list">
+          <ul class="navlinks">
+            <li><a href="/new">Add a paper</a></li>
+            <li><a href="/ppr">Downloads</a></li>
+            <!-- <li><a href="/about">About us</a></li> -->
+          </ul>
+        </div>
+        <span class="navTrigger">
+          <i></i>
+          <i></i>
+          <i></i>
+        </span>
+      </div>
     </nav>
 
     <div class="image-container">
-        <img src="https://i.pinimg.com/originals/19/87/c8/1987c8851b996bf6b22148d2504edaf1.jpg" alt="Background Image" style="width: 100%; height: 100%; object-fit: cover" />
-        <div class="search-container">
-            <!-- VYUGen Text -->
-            <div class="vyugen-text">VYUGen</div>
+      <img
+        src="https://i.pinimg.com/originals/19/87/c8/1987c8851b996bf6b22148d2504edaf1.jpg"
+        alt="Background Image"
+        style="width: 100%; height: 100%; object-fit: cover"
+      />
+      <div class="search-container">
+        <!-- VYUGen Text -->
+        <div class="vyugen-text">VYUGen</div>
 
-            <!-- Search Bar and Buttons -->
-            <form action="/search" method="post" >
-                <input type="text" id="search-bar" placeholder="Search VYUGen" name="sub" class="search-bar" />
-                <div class="button-container">
-                    <button type="submit" class="search-button">Search by name</button>
-                    <button type="button" class="search-button" id="ml-search-btn" onclick="searchWithML(event)">
-                        Search by topic
-                    </button>
-                </div>
-            </form>
-        </div>
+        <!-- Search Bar and Buttons -->
+        <form action="/search" method="post">
+          <input
+            type="text"
+            id="search-bar"
+            placeholder="Search VYUGen"
+            name="sub"
+            class="search-bar"
+          />
+          <div class="button-container">
+            <button type="submit" class="search-button">Search by name</button>
+            <button
+              type="button"
+              class="search-button"
+              id="ml-search-btn"
+              onclick="searchWithML(event)"
+            >
+              Search by topic
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-    
-    <div class="second">
-        <div class="contact-section">
-            <div class="contact-left">
-                <h2>About us</h2>
-                <div class="cards">
-                    <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="yuvraj-singh-a38637200" data-version="v1">
-                        <a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/yuvraj-singh-a38637200?trk=profile-badge"></a>
-                    </div>
-                    <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="yuvraj-singh-a38637200" data-version="v1">
-                        <a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/yuvraj-singh-a38637200?trk=profile-badge"></a>
-                    </div>
-                </div>
 
-                <div class="cards">
-                    <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="uday-jit-9a6295235" data-version="v1">
-                        <a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/uday-jit-9a6295235?trk=profile-badge"></a>
-                    </div>
-                    <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="yuvraj-singh-a38637200" data-version="v1">
-                        <a class="badge-base__link LI-simple-link" href="https://in.linkedin.com/in/yuvraj-singh-a38637200?trk=profile-badge"></a>
-                    </div>
-                </div>
+    <div class="second">
+      <div class="contact-section">
+        <div class="contact-left">
+          <h2>About us</h2>
+          <div class="cards">
+            <div
+              class="badge-base LI-profile-badge"
+              data-locale="en_US"
+              data-size="medium"
+              data-theme="dark"
+              data-type="VERTICAL"
+              data-vanity="yuvraj-singh-a38637200"
+              data-version="v1"
+            >
+              <a
+                class="badge-base__link LI-simple-link"
+                href="https://in.linkedin.com/in/yuvraj-singh-a38637200?trk=profile-badge"
+              ></a>
             </div>
-            <div class="contact-right">
-                <h2>Contact us</h2>
-                <form action="https://api.web3forms.com/submit" method="POST">
-                    <input type="hidden" name="access_key" value="0cfeb710-f119-4ce7-838e-755736a01c34" />
-                    <label>Your Name</label>
-                    <input type="text" name="name" placeholder="enter your name" required />
-                    <label>Your Email</label>
-                    <input type="email" name="email" placeholder="enter your email" required />
-                    <label>Write your message</label>
-                    <textarea name="message" placeholder="enter your message here" required></textarea>
-                    <input type="checkbox" name="botcheck" class="hidden" style="display: none" />
-                    <button type="submit" class="contact-submit">Submit</button>
-                </form>
+            <div
+              class="badge-base LI-profile-badge"
+              data-locale="en_US"
+              data-size="medium"
+              data-theme="dark"
+              data-type="VERTICAL"
+              data-vanity="gurjot-kaur-76b026223"
+              data-version="v1"
+            >
+              <a
+                class="badge-base__link LI-simple-link"
+                href="https://in.linkedin.com/in/gurjot-kaur-76b026223?trk=profile-badge"
+                >Gurjot Kaur</a
+              >
             </div>
+          </div>
+
+          <div class="cards">
+            <div
+              class="badge-base LI-profile-badge"
+              data-locale="en_US"
+              data-size="medium"
+              data-theme="dark"
+              data-type="VERTICAL"
+              data-vanity="uday-jit-9a6295235"
+              data-version="v1"
+            >
+              <a
+                class="badge-base__link LI-simple-link"
+                href="https://in.linkedin.com/in/uday-jit-9a6295235?trk=profile-badge"
+              ></a>
+            </div>
+            <div
+              class="badge-base LI-profile-badge"
+              data-locale="en_US"
+              data-size="medium"
+              data-theme="dark"
+              data-type="VERTICAL"
+              data-vanity="vishal-sharma-94648025b"
+              data-version="v1"
+            >
+              <a
+                class="badge-base__link LI-simple-link"
+                href="https://in.linkedin.com/in/vishal-sharma-94648025b?trk=profile-badge"
+              ></a>
+            </div>
+          </div>
         </div>
+        <div class="contact-right">
+          <h2>Contact us</h2>
+          <form action="https://api.web3forms.com/submit" method="POST">
+            <input
+              type="hidden"
+              name="access_key"
+              value="0cfeb710-f119-4ce7-838e-755736a01c34"
+            />
+            <label>Your Name</label>
+            <input
+              type="text"
+              name="name"
+              placeholder="enter your name"
+              required
+            />
+            <label>Your Email</label>
+            <input
+              type="email"
+              name="email"
+              placeholder="enter your email"
+              required
+            />
+            <label>Write your message</label>
+            <textarea
+              name="message"
+              placeholder="enter your message here"
+              required
+            ></textarea>
+            <input
+              type="checkbox"
+              name="botcheck"
+              class="hidden"
+              style="display: none"
+            />
+            <button type="submit" class="contact-submit">Submit</button>
+          </form>
+        </div>
+      </div>
     </div>
 
     <footer>
-        <div class="footer-bottom">
-            <p class="footer-bottom-left">© 2024 VYUGen Papers. <br> All rights reserved.</p>
-            <div class="footer-bottom-right">
-                <p>Terms of Services</p>
-                <p>Privacy Policy</p>
-                <p>Connect with us</p>
-            </div>
+      <div class="footer-bottom">
+        <p class="footer-bottom-left">
+          © 2024 VYUGen Papers. All rights reserved.
+        </p>
+        <div class="footer-bottom-right">
+          <p>Terms of Services</p>
+          <p>Privacy Policy</p>
+          <p>Connect with us</p>
         </div>
+      </div>
     </footer>
 
-    <script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
+    <script
+      src="https://platform.linkedin.com/badges/js/profile.js"
+      async
+      defer
+      type="text/javascript"
+    ></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="js/home.js"></script>
 
     <!-- JavaScript for ML Search -->
     <script>
-        function searchWithML(event) {
-            event.preventDefault(); // Prevent the form from submitting
+      function searchWithML(event) {
+        event.preventDefault(); // Prevent the form from submitting
 
-            const queryInput = document.getElementById("search-bar");
-            if (!queryInput) {
-                console.error("Search bar input not found!");
-                return;
-            }
-
-            const query = queryInput.value;
-            if (!query) {
-                console.warn("No query entered.");
-                alert("Please enter a search term!");
-                return;
-            }
-
-            console.log("Navigating to ML search with query:", query);
-            // Navigate to the ML search results page with the query
-            window.location.href = `/ml-search?query=${encodeURIComponent(query)}`;
+        const queryInput = document.getElementById("search-bar");
+        if (!queryInput) {
+          console.error("Search bar input not found!");
+          return;
         }
+
+        const query = queryInput.value;
+        if (!query) {
+          console.warn("No query entered.");
+          alert("Please enter a search term!");
+          return;
+        }
+
+        console.log("Navigating to ML search with query:", query);
+        // Navigate to the ML search results page with the query
+        window.location.href = `/ml-search?query=${encodeURIComponent(query)}`;
+      }
     </script>
-</body>
+  </body>
 </html>
