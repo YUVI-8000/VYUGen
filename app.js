@@ -68,15 +68,6 @@ app.use((req,res,next)=>{
     next();
 });
 
-// app.get("/demouser",async(req,res)=>{
-//     let admin = new User({
-//         email: "admin@gmail.com",
-//         username: "admin-account"
-//     });
-//     let registeredUser = await User.register(admin,"vyugen@5660");
-//     res.send(registeredUser);
-// });
-
 app.get("/",(req,res)=>{
     res.send("root is working")
 })
