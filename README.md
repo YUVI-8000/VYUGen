@@ -1,6 +1,3 @@
-Here's the `README.md` text for you to copy:
-
-```
 # VYUGen Papers
 
 VYUGen Papers is a web application for managing and searching educational papers, projects, and materials for various courses, branches, and semesters. It features user authentication, search capabilities, and integration with an external machine learning (ML) service.
