@@ -74,14 +74,23 @@ app.get("/home", (req, res) => {
   res.render("./ppr/home.ejs");
 });
 
+// app.post(
+//   "/search",
+//   wrapAsync(async (req, res) => {
+//     let sub = req.body.sub;
+//     let pr = await ppr.find({ subName: { $regex: sub } });
+//     res.render("./ppr/show.ejs", { pr });
+//   })
+// );
 app.post(
   "/search",
   wrapAsync(async (req, res) => {
-    let sub = req.body.sub;
-    let pr = await ppr.find({ subName: { $regex: sub } });
+    let sub = req.body.sub.toLowerCase(); // Convert input to lowercase
+    let pr = await ppr.find({ subName: { $regex: sub, $options: 'i' } }); // Case-insensitive search
     res.render("./ppr/show.ejs", { pr });
   })
 );
+
 
 
 // Route to handle search requests
@@ -94,16 +103,16 @@ app.get("/ml-search", async (req, res) => {
     }
 
     // Send GET request to the Flask API
-    // const response = await axios.get("http://127.0.0.1:8000/search", {
-    //     params: { query },
-    // });
-
-    const response = await axios.get(
-      "https://peaceful-tamma-udayjit-98aff569.koyeb.app/search",
-      {
+    const response = await axios.get("http://127.0.0.1:8000/search", {
         params: { query },
-      }
-    );
+    });
+
+    // const response = await axios.get(
+    //   "https://peaceful-tamma-udayjit-98aff569.koyeb.app/search",
+    //   {
+    //     params: { query },
+    //   }
+    // );
 
     // Extract data from Flask response
     const { results, total_results } = response.data;
