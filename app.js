@@ -74,14 +74,6 @@ app.get("/home", (req, res) => {
   res.render("./ppr/home.ejs");
 });
 
-// app.post(
-//   "/search",
-//   wrapAsync(async (req, res) => {
-//     let sub = req.body.sub;
-//     let pr = await ppr.find({ subName: { $regex: sub } });
-//     res.render("./ppr/show.ejs", { pr });
-//   })
-// );
 app.post(
   "/search",
   wrapAsync(async (req, res) => {
@@ -90,8 +82,6 @@ app.post(
     res.render("./ppr/show.ejs", { pr });
   })
 );
-
-
 
 // Route to handle search requests
 app.get("/ml-search", async (req, res) => {
