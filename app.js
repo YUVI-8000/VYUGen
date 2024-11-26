@@ -83,20 +83,6 @@ app.post(
   })
 );
 
-// app.get("/ml-search", async (req, res) => {
-//     try {
-//         const query = req.query.query;
-//         // Change from GET to POST request
-//         // const response = await axios.post("http://127.0.0.1:5000/ml-search", { topic: query });
-//         const response = await axios.post("https://peaceful-tamma-udayjit-98aff569.koyeb.app/ml-search", { topic: query });
-//         const mlResult = response.data;
-//         // console.log(mlResult);
-//         res.render("./ppr/mlResultPage.ejs", { result: mlResult });
-//     } catch (error) {
-//         console.error("Error connecting to ML server:", error);
-//         res.render("error.ejs", { err: "Unable to fetch results from ML server." });
-//     }
-// });
 
 // Route to handle search requests
 app.get("/ml-search", async (req, res) => {
@@ -108,7 +94,7 @@ app.get("/ml-search", async (req, res) => {
     }
 
     // Send GET request to the Flask API
-    // const response = await axios.get("http://127.0.0.1:5000/search", {
+    // const response = await axios.get("http://127.0.0.1:8000/search", {
     //     params: { query },
     // });
 
@@ -246,3 +232,5 @@ app.use((err, req, res, next) => {
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
+
+
