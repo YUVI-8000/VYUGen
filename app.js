@@ -93,16 +93,16 @@ app.get("/ml-search", async (req, res) => {
     }
 
     // Send GET request to the Flask API
-    const response = await axios.get("http://127.0.0.1:8000/search", {
-        params: { query },
-    });
-
-    // const response = await axios.get(
-    //   "https://peaceful-tamma-udayjit-98aff569.koyeb.app/search",
-    //   {
+    // const response = await axios.get("http://127.0.0.1:8000/search", {
     //     params: { query },
-    //   }
-    // );
+    // });
+
+    const response = await axios.get(
+      "https://peaceful-tamma-udayjit-98aff569.koyeb.app/search",
+      {
+        params: { query },
+      }
+    );
 
     // Extract data from Flask response
     const { results, total_results } = response.data;
