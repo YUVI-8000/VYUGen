@@ -62,9 +62,9 @@
         margin-top: 40px;
     }
 </style>
-<h1>Similar Questions</h1>
-<h1>ML Search Results</h1>
-<h2>Query: "<%= query %>"</h2>
+
+<h3>ML Powered Results</h3>
+<h4>Topic: <%= query %></h4>
 
 <div class="container">
     <% 
@@ -86,7 +86,7 @@
             <div class="result-card">
                 <p><strong>Question:</strong> <%= item.question %></p>
                 <!-- <p><strong>Score:</strong> <%= item.score.toFixed(2) %></p> -->
-                <p><strong>Repetitions in previous years:</strong> <%= item.repetitions %></p>
+                <p><strong>Repetition in previous years:</strong> <%= item.repetitions %></p>
             </div>
         <% }); %>
     <% } else { %>
