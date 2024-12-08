@@ -7,7 +7,7 @@
         padding: 0;
     }
 
-    h1, h2 {
+    /* h1, h2 {
         text-align: center;
         color: #333;
         margin-top: 20px;
@@ -22,7 +22,7 @@
         font-size: 20px;
         font-weight: 400;
         color: #555;
-    }
+    } */
 
     .container {
         max-width: 800px;
@@ -86,7 +86,7 @@
             <div class="result-card">
                 <p><strong>Question:</strong> <%= item.question %></p>
                 <!-- <p><strong>Score:</strong> <%= item.score.toFixed(2) %></p> -->
-                <p><strong>Repetitions:</strong> <%= item.repetitions %></p>
+                <p><strong>Repetitions in previous years:</strong> <%= item.repetitions %></p>
             </div>
         <% }); %>
     <% } else { %>
