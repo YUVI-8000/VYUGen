@@ -1,14 +1,98 @@
 <% layout("./layout/boilerplate") %>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f7f7f7;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1, h2 {
+        text-align: center;
+        color: #333;
+        margin-top: 20px;
+    }
+
+    h1 {
+        font-size: 28px;
+        font-weight: 600;
+    }
+
+    h2 {
+        font-size: 20px;
+        font-weight: 400;
+        color: #555;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .result-card {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        margin: 15px 0;
+        padding: 15px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .result-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+
+    .result-card strong {
+        font-weight: 600;
+        color: #222;
+    }
+
+    .result-card p {
+        margin: 5px 0;
+        color: #555;
+    }
+
+    .no-results {
+        text-align: center;
+        color: #888;
+        font-size: 16px;
+        margin-top: 40px;
+    }
+</style>
 <h1>Similar Questions</h1>
-<ul>
-    <% if (result.length > 0) { %>
-        <% result.forEach(item => { %>
-            <li>
-                
-                <strong>Question:</strong> <%= item.question %>
-            </li>
-        <% }) %>
+<h1>ML Search Results</h1>
+<h2>Query: "<%= query %>"</h2>
+
+<div class="container">
+    <% 
+        // Remove duplicates based on the 'question' field
+        const uniqueResults = [];
+        const seenQuestions = new Set();
+
+        result.forEach(item => {
+            if (!seenQuestions.has(item.question)) {
+                uniqueResults.push(item);
+                seenQuestions.add(item.question);
+            }
+        });
+    %>
+
+    <% if (uniqueResults.length > 0) { %>
+        <h3>Total Results Found: <%= uniqueResults.length %></h3>
+        <% uniqueResults.forEach(item => { %>
+            <div class="result-card">
+                <p><strong>Question:</strong> <%= item.question %></p>
+                <!-- <p><strong>Score:</strong> <%= item.score.toFixed(2) %></p> -->
+                <p><strong>Repetitions:</strong> <%= item.repetitions %></p>
+            </div>
+        <% }); %>
     <% } else { %>
-        <li>No results found</li>
+        <p class="no-results">No results found for your query.</p>
     <% } %>
-</ul>
+</div>
+
+
+
